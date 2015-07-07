@@ -138,27 +138,30 @@ interface JsonSerializable {
 型の別名(typedef)は独自定義の型を作る最も基本的な方法
 ]
 
-```haskell
-newtype Name = String
-```
-
-* コンパイラにNameは単なるStringとは異なる意味を持つことを示唆する
 
 .margin-top-middle[
 列挙型(enum)は独自定義の値を持つ型を作る最も基本的な方法
 ]
 
-```haskell
-data KG = Haccar | AutoID | LINK | MEMSYS | CPSF | Kumo
-        | AQUA | NECO | Arch | ISC | BIANCO | SociableRobots | LifeCloud
+```c
+typedef char* Name;
+
+enum Role {
+    Faculty, Doctor, Master, Bachelar
+};
+
+bool addMember(Role r, Name n);
 ```
 
-* コンパイラに`Haccar`や`AutoID`といった値は`KG`という分類上で共通の意味を持つことを示唆する
+* コンパイラにNameは単なる`char *`とは異なる意味を持つことを示唆する
+* コンパイラに`Faculty`や`Doctor`といった値は`Role`という分類上で共通の意味を持つことを示唆する
 
 ---
 
-```c
+## 関数の型
 
+```c
+bool (*addMember)(Role r, Name n) 
 ```
 
 ---
